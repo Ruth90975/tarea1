@@ -1,0 +1,105 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Test Result
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-list-header>Follow us on Twitter</ion-list-header>
+    <ion-item>
+      <ion-icon name="logo-twitter" item-left></ion-icon>
+      @acharyaks90
+    </ion-item>
+  </ion-list>
+
+<ion-item>
+  <ion-icon item-start></ion-icon>
+  Score Card: Your Score is 
+  <ion-badge >{{resultData.test.score}}</ion-badge> 
+  Out of <ion-badge >100</ion-badge>
+</ion-item>
+<div padding>
+  <ion-segment [(ngModel)]="switchLoginSignup">
+    <ion-segment-button value="login">
+      Login
+    </ion-segment-button>
+    <ion-segment-button value="signup">
+      Sign Up
+    </ion-segment-button>
+  </ion-segment>
+</div>
+
+<div [ngSwitch]="switchLoginSignup">
+  <ion-list *ngSwitchCase="'signup'">
+    <ion-item>
+    <ion-label >Occupation</ion-label>
+    <ion-input name="name"  [(ngModel)]="user.profession" type="text" value=""></ion-input>
+  </ion-item>
+  <ion-item>
+     <ion-label>Gender</ion-label>
+    <ion-select [(ngModel)]="gender">
+      <ion-option value="male">Male</ion-option>
+      <ion-option value="female">Female</ion-option>
+    </ion-select>
+
+    
+  </ion-item>
+  <ion-item>
+  <ion-label>Date Of Birth</ion-label>
+     
+    <ion-datetime displayFormat="DD/MMM/YYYY" 
+    [(ngModel)]="user.dob"></ion-datetime>
+
+</ion-item>
+<ion-item>
+  <ion-label>Mobile</ion-label>
+      <ion-input  name="mobile"  [(ngModel)]="user.mobile" type="number" value=""></ion-input>
+</ion-item>
+
+<ion-item>
+    <ion-label >Password</ion-label>
+    <ion-input type="password"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label >Confirm Password</ion-label>
+    <ion-input type="password"></ion-input>
+  </ion-item>
+ 
+  <ion-item>
+  <ion-label text-wrap>
+
+   Agree Term and Conditions
+   <p>By Clicking Checkbox, You agree to our Terms, Data Policy and Cookie Policy. </p>
+  </ion-label>
+  <ion-checkbox ></ion-checkbox>
+</ion-item>
+<ion-item>
+    <button ion-button (click)="completeTest()" >Sign Up</button>
+    <button ion-button >Reset</button>
+  </ion-item>
+  </ion-list>
+
+  <ion-list *ngSwitchCase="'login'">
+
+  <ion-item>
+    <ion-label >Username</ion-label>
+    <ion-input type="text"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label >Password</ion-label>
+    <ion-input type="password"></ion-input>
+  </ion-item>
+  <ion-item >
+     <button ion-button (click)="completeTest()" >Sign In</button>
+  </ion-item>
+  
+
+  </ion-list>
+  
+ 
+</div>
+</ion-content>

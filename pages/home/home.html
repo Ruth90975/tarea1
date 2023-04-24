@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+<h1>Start your Test with the Inforamation below</h1>
+<form>
+
+  <ion-list>
+
+  <ion-item>
+    <ion-label >Name</ion-label>
+    <ion-input name="name" required [(ngModel)]="user.name" type="text" value=""></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label >Email Address</ion-label>
+    <ion-input  name="emailid" required  [(ngModel)]="user.email" type="email" value=""></ion-input>
+  </ion-item>
+  <ion-item>
+  <ion-label>Type Test</ion-label>
+  <ion-select name="testType" required [(ngModel)]="user.testType"  >
+  
+    <ion-option *ngFor="let test of listOfTest" [value]="test.code">{{test.name}} </ion-option>
+  </ion-select>
+</ion-item>
+
+</ion-list>
+<button ion-button round (click)="submitCheck();">Start</button>
+
+
+</form>
+</ion-content>
