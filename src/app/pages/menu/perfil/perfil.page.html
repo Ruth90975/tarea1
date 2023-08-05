@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Perfil User <ion-icon color="warning" name="sparkles-outline"></ion-icon> </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="profile-page">
+  <!-- Contenido de la página -->
+
+  <!-- Fondo de pantalla del perfil -->
+  <div class="background-image">
+    <!-- Contenido del perfil -->
+    <div class="profile-info">
+      <!-- Avatar del usuario -->
+      <div class="avatar-container">
+        <ion-avatar class="avatar">
+          <!-- <img
+            src="https://static.eldiario.es/clip/ab74aa95-3656-424c-8ca1-dce590aabb97_16-9-discover-aspect-ratio_default_0.jpg"
+            alt="Avatar del usuario"
+           /> -->
+           <img *ngIf="infoUser?.foto===''" alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+           <img *ngIf="infoUser?.foto" [src]="infoUser.foto" alt="Imagen Capturada">
+           
+          
+           <!-- <img *ngIf="image" [src]="'data:image/jpeg;base64,' + image" alt="Imagen Capturada"> -->
+          
+        </ion-avatar>
+        
+      </div>
+
+      <!-- Información del usuario -->
+      <div class="user-info" *ngIf="infoUser!==null" >
+        <h2>{{infoUser?.nombre}}</h2>
+        <p>Correo electrónico: {{infoUser?.email}}</p>
+        <p>puntuacion : {{infoUser?.puntuacion}}</p>
+
+      </div>
+    
+      <div class="cuadro">
+        <h4>Logros</h4>
+
+        <div *ngFor="let juego of gameInfo ; let i = index" >
+          <p>Coleccion: {{juego.objeto}} <ion-icon color="primary" name="checkmark-outline"></ion-icon></p>
+          
+        </div>
+        
+      </div>
+      
+    </div>
+    
+  </div>
+
+  <div *ngIf="edit==true" >
+    <ion-fab class="container-Edit">
+      <ion-fab-button color="warning" (click)="editar()"  fill="solid" class="button">
+        <ion-icon name="create-outline" style="font-size: 2rem; color:black;"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </div>
+
+        <!-- Otro contenido de tu vista aquí -->
+
+         <!-- Elemento para mostrar la imagen -->
+         <!-- <img *ngIf="image" [src]="'data:image/jpeg;base64,' + image" alt="Imagen Capturada"> -->
+
+          <!-- Otro contenido de tu vista aquí -->
+
+  
+
+  <!-- Contenido de la página fin  -->
+</ion-content>

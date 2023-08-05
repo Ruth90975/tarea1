@@ -1,0 +1,154 @@
+<ion-app>
+
+  <ion-menu contentId="main-content">
+    <!--Menu-->
+  
+    <ion-header>
+      <ion-toolbar color="warning">
+        <ion-title>Menu </ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content class="ion-padding">
+      <!--condenido de Menu inicio-->
+      <div class="imagen-container">
+
+        <img *ngIf="infoUser?.foto===''" class="img-User" alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+
+        <img *ngIf="infoUser?.foto"  [src]="infoUser.foto" class="img-User" alt="Imagen Capturada"  width="300" height="200">
+        <!-- <img *ngIf="infoUser?.foto"  [src]="'data:image/jpeg;base64,' + infoUser.foto" class="img-User" alt="Imagen Capturada"  width="300" height="200"> -->
+       <!--  <img class="img-User" alt="Silhouette of mountains" src="assets/img/user.jpg" width="300" height="200" /> -->
+      </div>
+    
+      <!-- inicio menu-user -->
+      <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; margin-bottom: 10px;">
+        <ion-list lines="none">
+          <!-- Nombre -->
+          <ion-item style="text-align: center; margin-bottom: 0px;">
+            <ion-label color="warning" class="nombre">{{infoUsuario.nombre}}</ion-label>
+          </ion-item>
+      
+          <!-- Email -->
+          <ion-item style="text-align: center; margin-top: -13px;">
+            <ion-label class="email" color="warning">{{infoUsuario.email}}</ion-label>
+          </ion-item>
+
+
+          
+       
+
+        </ion-list>
+      </div>
+      
+<!-- fin menu-user -->
+<!-- list de botones  -->
+
+<ion-item button detail="true" detail-icon="caret-forward-outline" [routerLink]="'/perfil/' + clave">
+  <ion-label><h3>Perfil</h3></ion-label>
+</ion-item>
+
+<ion-item button detail="true" detail-icon="caret-forward-outline" routerLink="/temas">
+  <ion-label><h3>Themas</h3></ion-label>
+</ion-item>
+
+<ion-item button detail="true" detail-icon="caret-forward-outline" routerLink="/records">
+  <ion-label><h3>Records</h3></ion-label>
+</ion-item>
+
+<div class="ion-text-center" style="margin-top: 120px;">
+  <ion-button color="warning" (click)="salir()">Salir</ion-button>
+</div>
+
+<!-- fin list botones -->
+
+
+      <!-- Contenido del menu.ddddddddd -->
+
+      <!--condenido de Menu fin-->
+    </ion-content>
+
+    <!--Menu Fin-->
+  </ion-menu>
+
+  <div class="ion-page" id="main-content">
+
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-menu-button>
+            <ion-icon name="settings-outline"></ion-icon> 
+          </ion-menu-button>
+        </ion-buttons>
+        <ion-title>Anagrama</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+  <!--  <ion-content class="ion-padding" no-scroll padding> posemos usars esta si quieres ms ajustado -->
+
+    <ion-content  no-scroll padding>
+      <!--condenido de pagina-->
+
+    
+
+
+    <ion-grid [fixed]="true" >
+      <ion-row>
+        <!-- <ion-col size="10" *ngFor="let palabra of obj" > -->
+        <ion-col *ngFor="let palabra of obj" ><!-- for -->
+          <ion-card  >
+            <ion-img [src]="'/assets/img/coleccion/' + palabra.dir"  width="300" height="200"></ion-img>
+  
+            <ion-card-content>
+              <ion-card-title>{{palabra.name.toUpperCase()}}</ion-card-title>
+
+              <ion-card-subtitle >
+      
+                <ion-button (click)="parametro(palabra.name)" fill="clear" >Jugar</ion-button>
+              
+              </ion-card-subtitle>
+
+              <ion-card-subtitle  *ngIf =" palabra.estado =='terminado'">
+      
+              <!--  <ion-label color="warning">Coleccion terminada</ion-label> -->
+              
+              </ion-card-subtitle>
+
+
+
+
+            </ion-card-content>
+          </ion-card>
+  
+        </ion-col>
+  
+      </ion-row>
+    </ion-grid>
+
+      <!--condenido de pagina Fin-->
+    </ion-content>
+
+  </div>
+
+</ion-app>
+
+
+
+
+
+<!-- <ion-card *ngFor="let palabra of obj" class="ion-text-center" >
+  <img alt="Silhouette of mountains" src={{palabra.dir}} width="300" height="200" />
+  <ion-card-header>
+    <ion-card-title>{{palabra.name.toUpperCase()}}</ion-card-title>
+    <ion-card-subtitle *ngIf =" palabra.estado!='terminado'">
+
+      <ion-button (click)="parametro(palabra.name)" fill="clear" >Jugar</ion-button>
+    
+    </ion-card-subtitle>
+    <ion-card-subtitle *ngIf =" palabra.estado =='terminado'">
+
+      <ion-label color="warning">Coleccion terminada</ion-label>
+    
+    </ion-card-subtitle>
+
+  </ion-card-header>
+</ion-card> -->

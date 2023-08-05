@@ -1,0 +1,7 @@
+{
+  "name": "AnagramaApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

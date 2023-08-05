@@ -1,0 +1,84 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>List Records <ion-icon color="warning" name="sparkles-outline"></ion-icon> </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- Contenido de la página -->
+
+
+    <ion-grid *ngIf="dateUser && dateUser.usuario === 'privado'" [fixed]="true" class="ion-align-items-center ion-justify-content-center" >
+      <ion-row>
+        <ion-col >
+            <ion-card-content>
+              <div class="img-container">
+                <ion-img class="img-User"  src="assets/img/userRecord.png" ></ion-img>
+              </div>
+              <ion-button expand="block" color="warning" (click)="unirme()">Unirme</ion-button>
+            </ion-card-content>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+
+    <ion-list lines="none">
+
+      <!-- Usuarios Record top 3-->
+      <ion-item-group>
+        <ion-item-divider *ngIf=" dateUser && dateUser.usuario === 'publico'" >
+          <ion-label>
+            <div style=" text-align: center;">
+              TOP 3
+            </div>
+          </ion-label>
+        </ion-item-divider>
+        
+    
+        <ng-container *ngFor="let user of infoUser; let i = index">
+          <ion-item *ngIf="i < 3 && dateUser && dateUser.usuario === 'publico'" button detail="true" detail-icon="caret-forward-outline" [routerLink]="'/perfil/' + user.id">
+            <ion-avatar slot="start">
+             <!--  <img alt="Silhouette of a person's head" src="https://static.eldiario.es/clip/ab74aa95-3656-424c-8ca1-dce590aabb97_16-9-discover-aspect-ratio_default_0.jpg" /> -->
+             <img *ngIf="user.foto===''" alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+             <img class="img-User" *ngIf="user.foto" [src]="user.foto" alt="Imagen Capturada">
+            </ion-avatar>
+            <ion-label color="warning"><h3><ion-icon color="warning" name="sparkles-outline"></ion-icon>{{" "+ user.nombre}}</h3></ion-label>
+            <ion-label color="warning"><h3 >{{user.puntuacion}}</h3></ion-label>
+          </ion-item>
+        </ng-container>
+    
+      </ion-item-group>
+      <!-- Usuarios Record top 3 fin -->
+    
+      <!-- Usuarios Record top 10-->
+      <ion-item-group>
+
+        <ion-item-divider *ngIf=" dateUser && dateUser.usuario === 'publico'" >
+          <ion-label> Top medio </ion-label>
+         
+        </ion-item-divider>
+    
+        <ng-container *ngFor="let user of infoUser; let i = index">
+          <ion-item *ngIf="i >= 3 && dateUser && dateUser.usuario === 'publico'" button detail="true" detail-icon="caret-forward-outline" [routerLink]="'/perfil/' + user.id">
+            <ion-avatar slot="start">
+              <img *ngIf="user.foto===''" alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+             <img class="img-User" *ngIf="user.foto" [src]="user.foto" alt="Imagen Capturada">
+            </ion-avatar>
+            <ion-label><h3>{{user.nombre}}</h3></ion-label>
+            <ion-label><h3>{{user.puntuacion}}</h3></ion-label>
+          </ion-item>
+        </ng-container>
+    
+      </ion-item-group>
+      <!-- Usuarios Record top 10 fin -->
+    
+    </ion-list>
+    
+
+  <!-- Contenido de la página fin  -->
+
+
+</ion-content>

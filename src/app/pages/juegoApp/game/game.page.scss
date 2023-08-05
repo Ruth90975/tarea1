@@ -1,0 +1,20 @@
+
+.button-clicked {
+    /* Estilos o propiedades que deseas aplicar cuando se hace clic en el botón */
+    pointer-events: none; /* Bloquear el botón para que no se pueda hacer clic nuevamente */
+    opacity: 0.5; /* Reducir la opacidad del botón para indicar que está desactivado */
+  }
+
+  
+.lista-redondeada {
+    border-radius: 10px; /* Ajusta el valor según el nivel de redondez que desees */
+    color:black;
+    opacity: 0.5;
+}
+
+
+
+/* ion-content {
+  --background: url('/assets/img/tema/' var(--nombre-tema)) no-repeat 100% 100% fixed;
+}
+ */

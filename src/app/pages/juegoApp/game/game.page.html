@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Juega con AnagramaApp</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!-- <ion-content style="--background: url('/assets/img/tema/fondo.png') no-repeat 100% 100% fixed "> eliminarrr --> 
+
+  <ion-content [style.--background]="'url(/assets/img/tema/' + nombreTema  + ')'">
+ 
+  <!-- Contenido de la página -->
+
+  <div class="ion-padding">
+    <!-- <ion-list #slidingList> -->
+      <!-- notificacion puntaje -->
+      <!-- permite usar los elemntos de la lista-->
+     
+        <ion-item class="lista-redondeada" color="light">
+          <ion-label>Palabras Acertadas : </ion-label>
+          <ion-badge>{{puntaje}}</ion-badge>
+        </ion-item>
+      
+      <!-- notificacion puntaje fin -->
+    <!-- </ion-list> -->
+  </div>
+       
+  <h3 style="color: #efb810; text-align: center; font-weight: bold; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; background: linear-gradient(0deg, black, black); -webkit-background-clip: text, border-box; background-clip: text, border-box;">
+    {{ valor.toUpperCase() }}
+  </h3>
+
+  <!-- Contenido botones -->
+  <ion-grid [fixed]="true">
+    <ion-row>
+      <ion-col *ngFor="let Caracter of caracteres">
+        <ion-button
+          color="warning"
+          (click)="enviarValor(Caracter)"
+          fill="solid"
+          [ngClass]="{'button-clicked': botonClicked===Caracter && click===true}"
+          >{{Caracter}}
+        </ion-button>
+      </ion-col>
+
+      <ion-col>
+        <ion-button color="light" (click)="enviarValor('0')" fill="solid">
+          <ion-icon color="warning" name="trash-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <!-- Contenido botones fin-->
+
+  <!-- Contenido de la página fin  -->
+
+
+</ion-content>

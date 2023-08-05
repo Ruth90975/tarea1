@@ -1,0 +1,106 @@
+<ion-app>
+  <ion-menu contentId="main-content">
+    <!--Menu-->
+
+    <ion-header>
+      <ion-toolbar color="warning">
+        <ion-title>Menu </ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content class="ion-padding">
+      <!--condenido de Menu inicio-->
+
+      <div class="imagen-container">
+        <img class="img-User" alt="Silhouette of mountains" src="assets/img/user.jpg" width="300" height="200" />
+      </div>
+    
+      <!-- inicio menu-user -->
+      <div style="display: flex; justify-content: center; align-items: 10px;margin-bottom: 10px;">
+        <ion-list lines="none" >
+          <!-- Nombre -->
+          <ion-item style="margin-left: 13px;">
+            <ion-label color="warning" class="nombre">{{DataUser.nombre}}</ion-label>
+          </ion-item>
+      
+          <!-- Email -->
+          <ion-item style="margin-top: -20px;">
+            <ion-label class="email" color="warning">Administrador</ion-label>
+          </ion-item>
+        </ion-list>
+      </div>
+
+      Contenido del menu.
+
+      <!--condenido de Menu fin-->
+    </ion-content>
+
+    <!--Menu Fin-->
+  </ion-menu>
+
+  <div class="ion-page" id="main-content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-menu-button> </ion-menu-button>
+        </ion-buttons>
+        <ion-title>Administrador</ion-title>
+       
+      </ion-toolbar>
+    </ion-header>
+
+    <!--  <ion-content class="ion-padding" no-scroll padding> posemos usars esta si quieres ms ajustado -->
+
+    <ion-content no-scroll padding>
+      <!--condenido de pagina-->
+
+      <div class="profile-info">
+        <form [formGroup]="formAddPalabra" (ngSubmit)="addPalabra()">
+          <!-- <ion-item lines="none" style="background-color: beige;"> -->
+            <ion-select  class="custom-select" label="Seleccionar Objeto" formControlName="objeto" okText="OK" cancelText="Cancelar">
+              <ion-select-option value="dias">Dias</ion-select-option>
+              <ion-select-option value="frutas">Frutas</ion-select-option>
+              <ion-select-option value="profesiones">Profesiones</ion-select-option>
+              <ion-select-option value="paises">Paises</ion-select-option>
+              <ion-select-option value="colores">Colores</ion-select-option>
+              <ion-select-option value="meses">Meses</ion-select-option>
+            </ion-select>
+        <!--   </ion-item> -->
+
+          <p class="ion-text-center">
+            <ion-button shape="round" color="warning" expand="block" padding type="submit"
+              [disabled]="!formAddPalabra.valid">
+              Agregar Objeto
+            </ion-button>
+          </p>
+        </form>
+      </div>
+
+
+      <ion-accordion-group>
+
+        <ion-accordion  *ngFor="let palabra of obj; let i = index" [value]="'p' + i">
+          <ion-item slot="header">
+            <ion-label> {{ palabra.name }} </ion-label>
+            <ion-label> <ion-icon style="padding-left: 20px;" color="medium" name="cloud-done-outline"></ion-icon></ion-label>
+           
+          </ion-item>
+
+          <div class="ion-padding" slot="content">
+           
+              <li *ngFor="let item of palabra.contenido">
+                <ion-label>{{ item.name }}</ion-label>
+              </li>
+           
+          </div>
+
+        </ion-accordion>
+
+      </ion-accordion-group>
+
+      
+
+      <!--condenido de pagina Fin-->
+    </ion-content>
+  </div>
+</ion-app>

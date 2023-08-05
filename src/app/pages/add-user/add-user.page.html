@@ -1,0 +1,90 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title><label style="text-align: center;">Crear Cuenta</label></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <!-- <form [formGroup]="formAddUser" (ngSubmit)=" registrar()">
+
+    <ion-item   lines="none">
+      <ion-label id="Nombre-label"  position="floating"></ion-label>
+      <ion-input aria-labelledby="Nombre-label" type="text" formControlName="name" placeholder="Nombre">
+      </ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-label id="Contraseña-label"  position="floating"></ion-label>
+      <ion-input aria-labelledby="Contraseña-label" type="password" formControlName="pass" placeholder="******"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-label id="Email-label" position="floating"></ion-label>
+      <ion-input  aria-labelledby="Email-label" type="email" formControlName="email" placeholder="ruth@gmail.com"></ion-input>
+    </ion-item>
+
+    <p class="ion-text-center">
+      <ion-button shape="round" color="primary" expand="block" padding type="submit" [disabled]="!formAddUser.valid">
+        Confirmar
+      </ion-button>
+    </p>
+  </form> -->
+
+
+  <div class="form-container">
+
+    <ion-grid  [fixed]="true" class="ion-align-items-center ion-justify-content-center" >
+      <ion-row>
+        <ion-col >
+            <ion-card-content>
+              <div class="img-container">
+                <ion-img class="img-User"  src="assets/img/userRecord.png" ></ion-img>
+              </div>
+            
+            </ion-card-content>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <form [formGroup]="formAddUser" (ngSubmit)="registrar()">
+
+      <ion-item lines="none" class="custom-input">
+        <ion-label style=" font-size: 13px;" id="Nombre-label" position="floating">Nombre</ion-label>
+        <ion-input aria-labelledby="Nombre-label" type="text" formControlName="name" placeholder="Nombre">
+        </ion-input>
+      </ion-item>
+
+      <ion-item lines="none" class="custom-input">
+        <ion-label style=" font-size: 13px;" id="Contraseña-label" position="floating">Contraseña</ion-label>
+        <ion-input aria-labelledby="Contraseña-label" type="password" formControlName="pass" placeholder="******">
+        </ion-input>
+      </ion-item>
+
+      <ion-item lines="none" class="custom-input">
+        <ion-label style=" font-size: 13px;" id="Email-label" position="floating">Email</ion-label>
+        <ion-input aria-labelledby="Email-label" type="email" formControlName="email" placeholder="@gmail.com">
+        </ion-input>
+      </ion-item>
+
+      <p class="ion-text-center">
+        <ion-button shape="round" color="primary" expand="block" padding type="submit" [disabled]="!formAddUser.valid">
+          Crear Cuenta
+        </ion-button>
+      </p>
+      
+    </form>
+    
+  </div>
+
+  
+
+  <!-- menuu  -->
+<div style="text-align: center;margin-top:10px;">
+  <a  color="primary" href="../login">Iniciar Sesion</a>
+</div>
+  <!-- menuu  -->
+
+  <ion-label color="danger" position="floating">{{errorMensaje}}</ion-label>
+  
+</ion-content>

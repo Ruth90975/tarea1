@@ -1,0 +1,108 @@
+.profile-page {
+    /* Estilos para centrar el contenido verticalmente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Estilos para el fondo de pantalla del perfil */
+} 
+.background-image {
+  /* Reemplazar la URL por la ruta a la imagen de fondo */
+    background-image: url("/assets/img/tema/fondo1.png");
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* opacity: 0.5; */ /* Ajustar la opacidad según lo desees */
+    z-index: -1;
+}
+
+    /* Estilos para la información del perfil */
+.profile-info {
+    margin-top: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* padding: 20px; */
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente para la información del perfil */
+    border-radius: 0px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave para el contenedor */
+    height: 80%;
+}
+
+    /* Estilos para el avatar del usuario */
+.avatar-container {
+    margin-bottom: -5px;
+    margin-top: -70px;
+}
+
+.avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+    /* Estilos para la información del usuario */
+.user-info {
+    text-align: center;
+    margin-bottom: 15px;
+
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333; /* Color del texto */
+}
+
+p {
+    font-size: 16px;
+    color: #555; /* Color del texto */
+    margin-bottom: 5px;
+}
+
+/* Estilos para el cuadro */
+.cuadro {
+    
+    text-align: center;
+    border: 1px solid grey; /* Borde gris */
+    padding: 0px  10px; /* Espaciado interno para el contenido */
+    padding-bottom: 20px;
+    max-width: 300px; /* Ancho máximo del cuadro */
+    margin: 0 auto; /* Centrar horizontalmente */
+    color: gray
+}
+
+  /* Estilos para el título "Colecciones terminadas" */
+
+  /* Estilos para los subtítulos */
+.cuadro p {
+    margin: 0; /* Eliminar el margen del párrafo */
+}
+
+  /* Estilos para el contenedor */
+.container-Edit {
+    display: flex;
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    height: 100vh; /* Altura del contenedor  */
+    margin-top: -140px;
+    margin-right: -210px;
+}
+
+  /* Estilos para el botón */
+.button {
+    margin-top: -250px; /* Espaciado superior */
+    margin-right: -400px; 
+
+}
+
+
+
+
+
+
